@@ -43,10 +43,12 @@ button {
 	outline: none;
 }
 
-button:hover {
+
+
+/*.hover:hover {
 	background-color: steelblue;
 	color: white;
-}
+}*/
 
 #color-goal {
 	font-size: 1.8em;
@@ -90,7 +92,15 @@ button:hover {
 	color: white;
 }
 
-@media only screen and (max-width: 768px) {
+ @media all and (min-width: 900px) 
+ {
+    button:hover {
+		background-color: steelblue;
+		color: white;
+	}
+}
+
+@media only screen and (max-width: 768px),(hover:none) {
 	#color-goal {
 		font-size: 1.2em;
 	}

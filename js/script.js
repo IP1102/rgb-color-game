@@ -72,9 +72,29 @@ function setUpSquares()
 	}
 }
 
+function fadeOut(element){
+	var interval_number = setInterval(function(){
+		element.classList.remove("selected");
+		clearInterval(interval_number);
+	}, 250);
+}
+
+function fadeIn(element){
+	var interval_number = setInterval(function(){
+		element.classList.add("selected");
+		clearInterval(interval_number);
+	}, 50);
+}
+
 function reset()
 {
 	btn_reset.textContent = "New Colors";
+	btn_reset.addEventListener("touchstart", function(){
+		fadeIn(this);
+	});
+	btn_reset.addEventListener("touchend", function(){
+		fadeOut(this);
+	});
 	message_display.textContent = "";
 	colors = generateRandomColors(square_count);
 	picked_color = pickColor();
