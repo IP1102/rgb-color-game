@@ -101,6 +101,17 @@ button {
     font-weight: 300;
 }
 
+#feedback {
+	font-size: 40px;
+	line-height: 1em;
+	text-align: center;
+}
+
+i {
+	margin: 0 0.5em;
+}
+
+
  @media all and (min-width: 768px) 
  {
     .hover:hover {
