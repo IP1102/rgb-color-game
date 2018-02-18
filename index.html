@@ -4,16 +4,17 @@
 	<title>Color Game</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,700i,800" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/AdditiveColor.svg/400px-AdditiveColor.svg.png">The Great<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/AdditiveColor.svg/400px-AdditiveColor.svg.png"><div id="color-goal">RGB</div> Color Game</h1>
+	<h1><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/AdditiveColor.svg/400px-AdditiveColor.svg.png">The Great<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/AdditiveColor.svg/400px-AdditiveColor.svg.png"><div id="color-goal">RGB</div><span id="display">Color Game</span></h1>
 	<div id="stripe">
-		<button id="reset">New Colors</button>
-		<span id="message"></span>
-		<button class="mode">Easy</button>
-		<button class="mode">Medium</button>
-		<button class="mode selected">Hard</button>
+	    <button id="help" class="hover" data-toggle="modal" data-target="#myModal">How to Play?</button>
+  		<!-- <button id="reset" class="hover">New Colors</button> -->
+          <!--		<span id="message"></span>-->
+  		<button class="mode selected hover">Practice</button>
+  		<button class="mode hover">Time Trial</button>
 	</div>
 	<div class="container">
 		<div class="square"></div>
@@ -26,6 +27,75 @@
 		<div class="square"></div>
 		<div class="square"></div>
 	</div>
+	<!-- Modal How-to-Play -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">How to play?</h4>
+          </div>
+          <div class="modal-body">
+            <div class="thumbnail">
+				<img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/AdditiveColor.svg/400px-AdditiveColor.svg.png">
+            </div>
+            <ul>
+                <li>The above image, showcases the colors produced as a result of the mixing of <span style="color: red">RED</span>, <span style="color: green">GREEN</span>, and <span style="color: deepskyblue">BLUE</span>.</li>
+            </ul>
+            <div class="thumbnail">
+                     <img src="img/rgb-intensity.PNG">
+            </div>
+            <ul>
+                <li>A RGB color is described by it's <span style="color: red">RED</span>, <span style="color: green">GREEN</span>, and <span style="color: deepskyblue">BLUE</span> intensities.</li>
+                <li>The intensity varies between <strong>0</strong> - <strong>255</strong></li>
+                <li>Higher intensities of <span style="color: red">RED</span>and <span style="color: green">GREEN</span> produces a <span style="color: rgb(178, 178, 0)">YELLOWISH</span> color, higher intensities of <span style="color: green">GREEN</span>, and <span style="color: deepskyblue">BLUE</span> produces <span style"color: cyan">CYAN</span> and higher intensities of <span style="color: red">RED</span> and <span style="color: deepskyblue">BLUE</span> produces <span style="color: violet">VIOLET</span> color.</li>
+                <li>If all the <span style="color: red">RED</span>, <span style="color: green">GREEN</span>, and <span style="color: deepskyblue">BLUE</span> channels are high, <span style="color: bisque; background-color: rgba(100, 100, 100, 0.4);">WHEATISH</span> color is produced.</li>
+            </ul>
+            <p style="font-size: 30px">Time Trial Mode</p>
+            <ul>
+                <li>The objective of the game is to guess the correct square having the color same as that displayed above in terms of RGB(r, g, b) intensities.</li>
+                <li>9 pts is awarded for successful guess in the first try.</li>
+                <li>Each re-try costs you 1 pt.</li>
+                <li>You have 30 seconds of time and you get a maximum of 30 retries.</li>
+            </ul>
+            <p style="font-size: 30px">Practice Mode</p>
+            <ul>
+                <li>The objective of the game is to guess the correct square having the color same as that displayed above in terms of <span style="color: red">R</span><span style="color: green">G</span><span style="color: deepskyblue">B</span>(r, g, b) intensities.</li>
+                <li>Relax. Chill. Practice your <span style="color: red">R</span><span style="color: green">G</span><span style="color: deepskyblue">B</span> guessing skills.</li>
+                <li>To refresh the board, click on Practice Mode button again!</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Modal Game-Over-->
+    <div id="game-over" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Game Over!</h4>
+          </div>
+          <div class="modal-body" style="text-align: center">
+            <p>You have exceeded maximum retries!</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
